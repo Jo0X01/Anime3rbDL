@@ -1,6 +1,6 @@
 <p align="left">
   <a href="https://github.com/Jo0X01/Anime3rbDL">
-    <img src="Anime3rbDL.ico" alt="Anime3rbDL">
+    <img src="https://raw.githubusercontent.com/Jo0X01/Anime3rbDL/refs/heads/main/Anime3rbDL.ico" alt="Anime3rbDL">
   </a>
 </p>
 <p align="left">
