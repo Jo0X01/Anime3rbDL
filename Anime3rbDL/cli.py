@@ -53,14 +53,13 @@ class CLI:
                 data = Cache.SearchResult
         counter = 1
         print(f"    ... Search Results [{len(data)}] ...")
+        print("-"*40)
         for _data in data:
-            print("-"*40)
             print(f"[+] Choose Number: [{counter}]")
             print("[+] Title: ",_data["title"])
             # print("[+] Description: ",_data["desc"][:15],"...")
             print("[+] Banner Image: ",_data["image"])
             print("[+] Page Link: ",_data["image"])
             print(f"[+] Episodes: {_data["count"]} , Year: {_data['year']} , Rate: {_data['year']}")
-
             print("-"*40)
             counter+=1

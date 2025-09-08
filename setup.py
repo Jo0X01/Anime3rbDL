@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 __author__ = "Jo0x01"
 __pkg_name__ = "Anime3rbDL"
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 __desc__ = """A simple and fast command-line tool to **search, retrieve, and download anime episodes** from **[Anime3rb](https://anime3rb.com)**."""
 
 with open('README.md', 'r', encoding='utf-8') as f:

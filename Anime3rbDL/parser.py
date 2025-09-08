@@ -128,7 +128,7 @@ class Parser:
         APIConfig.SearchPayload["components"][0]["updates"]["query"] = Cache.USER_INPUT_URL
         _response = Client.post_req(
             Config.SearchAPI,
-            json=APIConfig.SearchPayload,
+            payload=APIConfig.SearchPayload,
             headers=APIConfig.SearchHeaders,
         )
         soup = bs4(_response["components"][0]["effects"]["html"], "html.parser")
