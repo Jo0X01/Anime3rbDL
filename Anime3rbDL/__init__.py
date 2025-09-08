@@ -15,8 +15,8 @@ class Anime3rbDL(CLI,Config,Cache):
             Parser.parse_url(_eps[0]["link"])
             return Parser.parse_title_page()
 
-    def get_info(self,skip_parts="all"):
-        Parser.parse_skip_parts(skip_parts)
+    def get_info(self,download_parts="all"):
+        Parser.parse_skip_parts(download_parts)
         return Parser.parse_episodes_links()
 
     def show_download_info(self,res="low"):
