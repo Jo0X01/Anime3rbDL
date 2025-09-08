@@ -1,4 +1,4 @@
-from .parser import Parser, Cache
+from Anime3rbDL.parser import Parser, Cache
 
 class CLI:
     @staticmethod

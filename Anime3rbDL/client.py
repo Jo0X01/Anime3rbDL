@@ -1,4 +1,3 @@
-
 import cloudscraper
 
 class Client:

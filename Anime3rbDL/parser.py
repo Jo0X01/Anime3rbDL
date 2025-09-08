@@ -1,8 +1,8 @@
-from .config import APIConfig, Cache,Config
+from Anime3rbDL.config import APIConfig, Cache,Config
 import re
 from bs4 import BeautifulSoup as bs4
 import json
-from .client import Client
+from Anime3rbDL.client import Client
 
 class Parser:
     @staticmethod

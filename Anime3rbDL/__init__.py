@@ -1,6 +1,6 @@
-from .parser import Parser,Client,Cache,Config
-from .cli import CLI
-from .downloader import Downloader
+from Anime3rbDL.parser import Parser,Client,Cache,Config
+from Anime3rbDL.cli import CLI
+from Anime3rbDL.downloader import Downloader
 import os
 
 class Anime3rbDL(CLI,Config,Cache):

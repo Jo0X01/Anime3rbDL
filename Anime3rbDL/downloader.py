@@ -1,5 +1,5 @@
 import os
-from .parser import Parser
+from Anime3rbDL.parser import Parser
 
 class Downloader:
     @staticmethod

@@ -7,7 +7,7 @@ def parse_args():
     parser = argparse.ArgumentParser(
         prog="Anime3rbDL",
         description=f"Anime3rbDL - Download Anime from: [{Anime3rbDL.WebsiteURL}] - Made With ♥ By: Mr.Jo0x01",
-        epilog="Example: Anime3rbDL 'Naruto' --res 720 --download"
+        epilog="Example: Anime3rbDL 'Naruto' --res low --download"
     )
 
     parser.add_argument(
