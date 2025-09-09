@@ -18,8 +18,8 @@ def parse_args():
     parser.add_argument(
         "--download-parts",
         metavar="RANGE",
-        default="all",
-        help="Download specific episodes (e.g., 1-3). Default: all"
+        default=None,
+        help="Download specific episodes (example: 1-3). Default: all"
     )
     parser.add_argument(
         "--res",
@@ -31,11 +31,6 @@ def parse_args():
         "--path",
         default=".",
         help="Directory to save downloads. Default: current directory"
-    )
-    parser.add_argument(
-        "--download",
-        action="store_true",
-        help="Automatically download after fetching info"
     )
 
     return parser.parse_args()
@@ -52,21 +47,26 @@ def main():
     if isinstance(anime.SearchResult, list) and len(anime.SearchResult) > 1:
         anime.show_search_data()
         try:
-            choice = int(input("\nSelect anime by number: ")) - 1
-            anime.search(anime.SearchResult[choice]["link"])
+            choice = anime.SearchResult[int(input("Select anime by number >>> ")) - 1]
+            print(f"[INFO] Chosen Anime: {choice['title']}")
+            anime.search(choice["link"])
+            if args.download_parts == None:
+                args.download_parts = str(input("[INP] Provide Download Parts Range (example: 1-3) (Default: all): "))
         except (ValueError, IndexError):
             sys.exit("[ERROR] Invalid selection.")
+    else:
+        if args.download_parts == None:
+            args.download_parts = "all"
 
     anime.get_info(download_parts=args.download_parts)
-    anime.show_download_info(res=res)
-
-    if args.download:
-        proceed = input("\nStart download? [y/N]: ").strip().lower()
-        if proceed in ("y", "yes"):
-            anime.download(path=args.path, res=args.res)
-            print("\n[INFO] Download completed successfully!")
-        else:
-            print("\n[INFO] Download cancelled.")
+    anime.show_episodes_info()
+    
+    proceed = input(f"[INP] Start download in [{args.res}] Resolution  ? [y/N]: ").strip().lower()
+    if proceed in ("y", "yes"):
+        anime.download(path=args.path, res=args.res)
+        print("\n[INFO] Download completed successfully!")
+    else:
+        print("\n[INFO] Download cancelled.")
     print("\nThank you for using Anime3rbDL!")
 
 if __name__ == "__main__":

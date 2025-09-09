@@ -57,14 +57,13 @@ Anime3rbDL "Naruto" --res mid --download
 - `--download-parts 1-5` → Range of episodes
 - `--res low|mid|high` → Resolution (default: low/480p)
 - `--path ./downloads` → Set download folder
-- `--download` → Start download after showing info
 
 ---
 
 ### Example
 
 ```bash
-Anime3rbDL "One Piece" --res high --download-parts 1-3 --download
+Anime3rbDL "One Piece" --res high --download-parts 1-3
 ```
 
 ---
