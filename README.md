@@ -31,12 +31,19 @@ A simple and fast command-line tool to **search, retrieve, and download anime ep
 
 ## Installation
 
+#### Via Source:
+
 ```bash
 git clone https://github.com/Jo0X01/Anime3rbDL.git
 cd Anime3rbDL
 pip install -r requirements.txt
 ```
 
+#### Via Pypi:
+
+```bash
+pip install Anime3rbDL
+```
 ---
 
 ## Usage
