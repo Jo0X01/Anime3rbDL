@@ -1,9 +1,9 @@
-<p align="left">
+<p align="center">
   <a href="https://github.com/Jo0X01/Anime3rbDL">
     <img src="https://raw.githubusercontent.com/Jo0X01/Anime3rbDL/refs/heads/main/Anime3rbDL.ico" alt="Anime3rbDL">
   </a>
 </p>
-<p align="left">
+<p align="center">
   <a href="https://pypi.org/project/Anime3rbDL/">
     <img src="https://img.shields.io/badge/-PyPi-blue.svg?logo=pypi&labelColor=555555&style=for-the-badge" alt="PyPi">
   </a>
