@@ -57,7 +57,7 @@ def main():
         except (ValueError, IndexError):
             sys.exit("[ERROR] Invalid selection.")
 
-    anime.get_info(skip_parts=args.download_parts)
+    anime.get_info(download_parts=args.download_parts)
     anime.show_download_info(res=res)
 
     if args.download:

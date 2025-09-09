@@ -106,18 +106,59 @@ class Parser:
         return Cache.EpisodesDownloadData
 
     @staticmethod
-    def parse_title_page():
-        if Cache.ANIME_INFO_HTML == None:
-            Cache.ANIME_INFO_HTML = Client.get_req(Cache.ANIME_URL)
-        _data = json.loads(
-            bs4(
-                Cache.ANIME_INFO_HTML,"html.parser"
-            ).find("script",{"type":"application/ld+json"}
-            ).string
-        )
-        _data['ep-urls'] = [i["url"] for i in _data["episode"]]
-        Cache.ANIME_INFO_DATA = _data
-        return Cache.ANIME_INFO_DATA
+    def parse_title_page(max_retries: int = 2):
+        last_error = None
+        data = None
+        html = None
+
+        for attempt in range(max_retries):
+            html = Client.get_req(Cache.ANIME_URL)
+            if not html:
+                last_error = f"Empty response for URL: {Cache.ANIME_URL}"
+                continue
+
+            soup = bs4(html, "html.parser")
+            script_tag = soup.find("script", {"type": "application/ld+json"})
+            if not script_tag or not script_tag.string:
+                last_error = "Missing or empty JSON-LD script tag."
+                continue
+
+            try:
+                data = json.loads(script_tag.string)
+            except json.JSONDecodeError as e:
+                last_error = f"JSON decode error: {e}"
+                continue
+
+            _type = data.get("@type")
+            if _type == "Episode":
+                data["ep-urls"] = [data.get("url")]
+                break
+
+            elif _type == "Movie":
+                # Convert titles URL to episode URL for movies
+                Cache.ANIME_URL = f"{Cache.ANIME_URL.replace('titles', 'episode').rstrip('/')}/1"
+                continue
+
+            elif _type == "TVSeries":
+                episodes = data.get("episode")
+                if not episodes:
+                    last_error = "No episodes found for TVSeries."
+                    continue
+                data["ep-urls"] = [ep.get("url") for ep in episodes if "url" in ep]
+                break
+
+            else:
+                last_error = f"Unknown content type: {_type}"
+                continue
+        else:
+            raise RuntimeError(f"Failed to parse anime info from: {Cache.ANIME_URL} | Reason: {last_error}")
+
+        Cache.ANIME_INFO_HTML = html
+        Cache.ANIME_INFO_DATA = data
+        return data
+
+
+
 
     @staticmethod
     def parse_search_page():
@@ -140,9 +181,12 @@ class Parser:
             link = a["href"]
             image = a.select_one("img")["src"]
             rate,count,year = details.select(".badge")
-            rate = re.search(r"([\d+\.]+)",rate.get_text(strip=True)).group(1)
-            count = re.search(r"(\d+)",count.get_text(strip=True)).group(1)
-            year = re.search(r"(\d+)",year.get_text(strip=True)).group(1)
+            try: rate = re.search(r"([0-9\.]+)",rate.get_text(strip=True)).group(1)
+            except: rate = "0.0"
+            try: count = re.search(r"([0-9\.]+)",count.get_text(strip=True)).group(1)
+            except: count = "UnKnown"
+            try: year = re.search(r"([0-9\.]+)",year.get_text(strip=True)).group(1)
+            except: year = "UnKnown"
             results.append({
                 "title": Parser.parse_filename(title),
                 "link": link,

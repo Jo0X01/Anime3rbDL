@@ -42,7 +42,7 @@ class CLI:
         print("[+] Filename: ")
         print(data["filename"])
         print(f"[+] FileSize: ",data["fsize"])
-        print("[+] Link: ")
+        print("[+] Direct Download Link: ")
         print(data["link"])
         print("-"*40)
 
@@ -59,7 +59,7 @@ class CLI:
             print("[+] Title: ",_data["title"])
             # print("[+] Description: ",_data["desc"][:15],"...")
             print("[+] Banner Image: ",_data["image"])
-            print("[+] Page Link: ",_data["image"])
-            print(f"[+] Episodes: {_data["count"]} , Year: {_data['year']} , Rate: {_data['year']}")
+            print("[+] Page Link: ",_data["link"])
+            print(f"[+] Episodes: {_data["count"]} , Year: {_data['year']} , Rate: {_data['rate']}")
             print("-"*40)
             counter+=1
