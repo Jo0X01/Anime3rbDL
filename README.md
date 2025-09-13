@@ -90,12 +90,13 @@ anime.download(path=_download_dir,res=resolution)
 
 ## Related Projects
 
-<p align="center">
-  <a href="https://github.com/USERNAME/anime3rb_scraper">
+<p align="left">
+  <a href="https://github.com/RadouaneElarfaoui/anime3rb_scraper">
     <img src="https://img.shields.io/badge/anime3rb__scraper-GUI%20Alternative-orange?style=for-the-badge" alt="anime3rb_scraper">
   </a>
 </p>
--  A graphical user interface (GUI) based alternative to Anime3rbDL, offering a more visual experience for browsing and downloading anime.
+
+##### A graphical user interface (GUI) based alternative to Anime3rbDL, offering a more visual experience for browsing and downloading anime.
 
 ---
 
