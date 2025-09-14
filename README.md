@@ -85,19 +85,6 @@ anime.get_info(download_parts="1-6,8,12") # this parts will be downloaded
 resolution = "low" # low/480p , mid/720p , high/108p
 anime.download(path=_download_dir,res=resolution)
 ```
-
----
-
-## Related Projects
-
-<p align="left">
-  <a href="https://github.com/RadouaneElarfaoui/anime3rb_scraper">
-    <img src="https://img.shields.io/badge/anime3rb__scraper-GUI%20Alternative-orange?style=for-the-badge" alt="anime3rb_scraper">
-  </a>
-</p>
-
-##### A graphical user interface (GUI) based alternative to Anime3rbDL, offering a more visual experience for browsing and downloading anime.
-
 ---
 
 ## License
