@@ -1,2 +1,7 @@
 beautifulsoup4==4.13.5
+click>=8.0.0
 cloudscraper==1.2.71
+fake-useragent>=0.1.11
+pydoll-python==2.8.0
+psutil>=7.1.0
+rich>=13.0.0
