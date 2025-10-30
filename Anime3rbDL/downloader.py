@@ -12,10 +12,6 @@ from Anime3rbDL.enums import ResoultionData, ResponseFileInfo
 from Anime3rbDL.exceptions import InvalidResponseError
 from Anime3rbDL.config import Config
 
-# Default response headers
-# {'Server': 'nginx', 'Date': 'Thu, 25 Sep 2025 06:55:44 GMT', 'Content-Type': 'video/mp4', 'Content-Length': '63610803', 'Last-Modified': 'Tue, 23 Sep 2025 07:40:25 GMT', 'Connection': 'keep-alive', 'ETag': '"68d24ee9-3ca9fb3"', 'Content-Disposition': 'attachment; filename="%5BAnime3rb.com%5D~Sakamoto~Days~Part~2~-~11~%5B480p%5D.mp4"', 'Accept-Ranges': 'bytes'}
-
-
 class _ServerFileHelper:
     """Helper class to parse and extract file information from HTTP response headers.
 
